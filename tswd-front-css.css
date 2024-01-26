@@ -1,3 +1,14 @@
+/*
+CSS variables in Divi options
+--noir: #100808;
+var(--noir);
+*/
+
+/***************** BASICS *****************/
+
+
+
+
 
 
 /***************** SCROLLBAR *****************/
@@ -17,7 +28,7 @@ body::-webkit-scrollbar-thumb {
 
 /*MOZ*/
 html {
-	scrollbar-width: thin;
+	
 	scrollbar-color: black white;
 }
 
