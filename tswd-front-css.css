@@ -1,11 +1,40 @@
 /*
 CSS variables in Divi options
+
 --noir: #100808;
 var(--noir);
+
 */
 
 /***************** BASICS *****************/
 
+#footer-bottom > .container,
+#main-footer > .container{
+	width:97%;
+	max-width:97%
+}
+
+#main-header > .container{
+	width:97%;
+	max-width:97%
+}
+
+
+body.full-header #page-container{
+	padding-top: 0 !important;
+
+}
+
+body.full-header #main-header:not(.et-fixed-header)
+/*body.full-header #main-header:not(.et-fixed-header) .sub-menu*/{
+	background:transparent !important;
+	box-shadow: none !important
+}
+
+body.full-header #main-header:not(.et-fixed-header) a
+ {
+	color:white !important;
+}
 
 
 
@@ -37,8 +66,28 @@ body {
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-/***************** MEDIA QUERIES *****************/
 
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/***************** MEDIA QUERIES *****************/
 
 @media all and (min-width: 1405px) {
 

@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: TSWD Front-End
-Plugin URI: https://www.tswd.fr/
-Description: Cascading Style Sheets, JavaScript, & Improvements
+Plugin Name: tswd-front-End
+Plugin URI: https://tswd.fr/
+Description: Own Cascading Style Sheet, JavaScript & Some WP improvements
 Author: Thomas Serment
-Version: 5
+Version: 2.1
 Author URI: https://tswd.fr/
 */
 
@@ -42,8 +42,7 @@ function loadTswdJs() {
 //    _______ ______ ______ _______ ______ _______ _______ 
 
 
-function loadTswdFonts()
-{
+function loadTswdFonts(){
     wp_register_style('tswd-fonts', plugins_url('font-lib/-tswd-fonts.css', __FILE__));
     wp_enqueue_style('tswd-fonts');
 }
@@ -52,7 +51,6 @@ function loadTswdFonts()
 //    _______ ______ ______ _______ ______ _______ _______ 
 
 function loadTswdStyle() {
-	
 	//wp_register_style('slick-css', plugins_url('/js-lib/slick/slick.css', __FILE__));
 	//wp_enqueue_style('slick-css');
 	//wp_register_style('slick-theme-css', plugins_url('/js-lib/slick/slick-theme.css', __FILE__));
@@ -68,15 +66,12 @@ function loadTswdStyle() {
 
 
 
-
 if(!is_admin() || empty($_GET['et_fb'])){
-
 	add_action('wp_print_styles', 'loadTswdFonts');
 	add_action( 'wp_print_styles', 'loadTswdStyle' );
 	add_action('wp_enqueue_scripts', 'loadTswdJs');
 
 }
-
 
 
 //    _______ ______ ______ _______ ______ _______ _______ 
@@ -85,6 +80,3 @@ function admin_scripts() {
 	wp_enqueue_script( 'ico-admin-js', plugins_url( '/tswd-front-end/core/dist/stylizer.js' , dirname(__FILE__) ) );
 }
 add_action('admin_enqueue_scripts', 'admin_scripts');
-
-
-?>
