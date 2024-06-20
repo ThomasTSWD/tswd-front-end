@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: tswd-front-End
+Plugin Name: TSWD Front-End
 Plugin URI: https://tswd.fr/
 Description: Own Cascading Style Sheet, JavaScript & Some WP improvements
 Author: Thomas Serment
