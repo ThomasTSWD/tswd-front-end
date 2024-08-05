@@ -5,43 +5,39 @@ CSS variables in Divi options
 var(--noir);
 
 */
-
 /***************** BASICS *****************/
-
-#footer-bottom > .container,
-#main-footer > .container{
-	width:97%;
-	max-width:97%
+#footer-bottom>.container,
+#main-footer>.container {
+	width: 97%;
+	max-width: 97%
 }
 
-#main-header > .container{
-	width:97%;
-	max-width:97%
+#main-header>.container {
+	width: 97%;
+	max-width: 97%
 }
 
-
-body.full-header #page-container{
+body.full-header #page-container {
 	padding-top: 0 !important;
-
 }
 
 body.full-header #main-header:not(.et-fixed-header)
-/*body.full-header #main-header:not(.et-fixed-header) .sub-menu*/{
-	background:transparent !important;
+
+/*body.full-header #main-header:not(.et-fixed-header) .sub-menu*/
+	{
+	background: transparent !important;
 	box-shadow: none !important
 }
 
-body.full-header #main-header:not(.et-fixed-header) a
- {
-	color:white !important;
+body.full-header #main-header:not(.et-fixed-header) a {
+	color: white !important;
 }
 
-
-
-
+body.full-header #main-header:not(.et-fixed-header) #logo {
+	filter: invert(1);
+}
 
 /***************** SCROLLBAR *****************/
-
 body::-webkit-scrollbar {
 	width: 11px;
 }
@@ -57,7 +53,6 @@ body::-webkit-scrollbar-thumb {
 
 /*MOZ*/
 html {
-	
 	scrollbar-color: black white;
 }
 
@@ -66,43 +61,31 @@ body {
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-
 html.lenis {
-  height: auto;
+	height: auto;
 }
 
 .lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+	scroll-behavior: auto !important;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+	overscroll-behavior: contain;
 }
 
 .lenis.lenis-stopped {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .lenis.lenis-scrolling iframe {
-  pointer-events: none;
+	pointer-events: none;
 }
 
 /***************** MEDIA QUERIES *****************/
+@media all and (min-width: 1405px) {}
 
-@media all and (min-width: 1405px) {
+@media all and (max-width: 980px) {}
 
-}
+@media all and (max-width: 767px) {}
 
-
-@media all and (max-width: 980px) {
-
-}
-
-
-@media all and (max-width: 767px) {
-
-}
-
-@media all and (max-width: 479px) {
-
-}
+@media all and (max-width: 479px) {}
