@@ -37,6 +37,54 @@ body.full-header #main-header:not(.et-fixed-header) #logo {
 	filter: invert(1);
 }
 
+/************* SLICK *************/
+.slick-prev,
+.slick-next {
+	top: 28%;
+}
+
+.slick-prev {
+	left: -38px;
+}
+
+.slick-next {
+	right: -38px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+	font-family: 'monospace';
+}
+
+.slick-prev:before {
+	content: "‹";
+}
+
+[dir="rtl"] .slick-prev:before {
+	content: "›";
+}
+
+[dir="rtl"] .slick-next {
+	left: -10px;
+	top: 70px;
+	right: auto;
+}
+
+.slick-next:before {
+	content: "›";
+}
+
+[dir="rtl"] .slick-next:before {
+	content: "‹";
+}
+
+.slick-dots li button:before {
+	font-size: 50px !important;
+}
+
+.slick-dots {
+	bottom: -2em;
+}
 /***************** SCROLLBAR *****************/
 body::-webkit-scrollbar {
 	width: 11px;
