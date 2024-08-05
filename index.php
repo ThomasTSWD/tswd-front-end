@@ -28,7 +28,7 @@ function loadTswdJs() {
 	//wp_enqueue_script( 'TweenMax', plugin_dir_url( __FILE__ ) . '/js-lib/ScrollMagic/TweenMax.min.js', '',  '', true );
 	//wp_enqueue_script( 'animation.gsap', plugin_dir_url( __FILE__ ) . '/js-lib/ScrollMagic/animation.gsap.min.js', '',  '', true );
 	//wp_enqueue_script( 'debug.addIndicators', plugin_dir_url( __FILE__ ) . '/js-lib/ScrollMagic/debug.addIndicators.min.js', '',  '', true );
-	//wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . '/js-lib/slick/slick.js', '',  '', true );
+	//wp_enqueue_script('slick', plugin_dir_url(__FILE__) . '/js-lib/slick/slick.js', array('jquery'), '', true);
 	//wp_enqueue_script( 'parallaxjs', plugin_dir_url( __FILE__ ) . '/js-lib/parallax.min.js', '',  '', true );
 	//wp_enqueue_script( 'gsap', plugin_dir_url( __FILE__ ) . '/js-lib/gsap/gsap-core.js', '',  '', true );
 	//wp_enqueue_script( 'gsap-scroll-trigger', plugin_dir_url( __FILE__ ) . '/js-lib/gsap/ScrollTrigger.js', '',  '', true );
