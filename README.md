@@ -1,13 +1,8 @@
-# tswd-front-end WORDPRESS Plugin
+# TSWD Front-End Worpress Add-on
 
-Import de front-css, font-face et front-js
+Custom Css & Js & improvements
 
-Monokai Theme / SVG Support / Agent BodyClass
+CTRL+S / Admin Notes / Monokai Theme / SVG Support / [lorem x=300] / [year] ...
 
-Urls & ID's in listing / Duplicate posts
 
-[lorem x=300] [year]
-
-CTRL+S / Admin Notes 
-
-![Image description](https://dev.tswd.fr/wp-content/plugins/tswd-front-end/core//dist/More-Info.jpg)
+![Image description](https://dev.tswd.fr/wp-content/plugins/tswd-front-end/core/dist/More-Info.jpg)

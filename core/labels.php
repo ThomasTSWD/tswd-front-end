@@ -7,9 +7,9 @@ function TSWD_plugin_setup_menu()
     if (current_user_can('administrator')) {
 
         add_menu_page('TSWD Front-End Page', /*labels->*/ 'TSWD Front-End', 'manage_options', 'tswd-front-end-page', 'function_tswd_init', 'dashicons-editor-code');
-        add_submenu_page('tswd-front-end-page', 'Submenu Page Title', 'Edit CSS', 'manage_options', 'plugin-editor.php?file=tswd-front-end%2Ftswd-front-css.css&plugin=tswd-front-end%2Findex.php');
-        add_submenu_page('tswd-front-end-page', 'Submenu Page Title', 'Edit JS', 'manage_options', 'plugin-editor.php?file=tswd-front-end%2Ftswd-front-js.js&plugin=tswd-front-end%2Findex.php');
-        add_submenu_page('tswd-front-end-page', 'Submenu Page Title', 'Edit FONTS', 'manage_options', 'plugin-editor.php?file=tswd-front-end%2Ffont-lib%2F-tswd-fonts.css&plugin=tswd-front-end%2Findex.php');
+        add_submenu_page('tswd-front-end-page', 'Submenu Page Title', 'Edit CSS', 'manage_options', 'plugin-editor.php?file=tswd-front-end%2Ffront-css.css&plugin=tswd-front-end%2Findex.php');
+        add_submenu_page('tswd-front-end-page', 'Submenu Page Title', 'Edit JS', 'manage_options', 'plugin-editor.php?file=tswd-front-end%2Ffront-js.js&plugin=tswd-front-end%2Findex.php');
+        add_submenu_page('tswd-front-end-page', 'Submenu Page Title', 'Edit FONTS', 'manage_options', 'plugin-editor.php?file=tswd-front-end%2Ffont-lib%2F-front-fonts.css&plugin=tswd-front-end%2Findex.php');
         add_submenu_page('tswd-front-end-page', 'Submenu Page Title', 'Admin Notes', 'manage_options', 'edit.php?post_type=dsn');
     }
 }
@@ -47,9 +47,9 @@ function function_tswd_init()
         echo "<h2>EDITER FICHIERS</h2>";
 
 
-        echo '<p><a href="' . get_bloginfo("wpurl") . '/wp-admin/plugin-editor.php?file=tswd-front-end%2Ftswd-front-js.js&plugin=tswd-front-end%2Findex.php">tswd-front-js</a></p>';
-        echo '<p><a href="' . get_bloginfo("wpurl") . '/wp-admin/plugin-editor.php?file=tswd-front-end%2Ftswd-front-css.css&plugin=tswd-front-end%2Findex.php">tswd-front-css</a></p>';
-        echo '<p><a href="' . get_bloginfo("wpurl") . '/wp-admin/plugin-editor.php?file=tswd-front-end%2Ffont-lib%2F-tswd-fonts.css&plugin=tswd-front-end%2Findex.php">Font-Face</a></p>';
+        echo '<p><a href="' . get_bloginfo("wpurl") . '/wp-admin/plugin-editor.php?file=tswd-front-end%2Ffront-js.js&plugin=tswd-front-end%2Findex.php">tswd-front-js</a></p>';
+        echo '<p><a href="' . get_bloginfo("wpurl") . '/wp-admin/plugin-editor.php?file=tswd-front-end%2Ffront-css.css&plugin=tswd-front-end%2Findex.php">tswd-front-css</a></p>';
+        echo '<p><a href="' . get_bloginfo("wpurl") . '/wp-admin/plugin-editor.php?file=tswd-front-end%2Ffont-lib%2F-front-fonts.css&plugin=tswd-front-end%2Findex.php">Font-Face</a></p>';
         echo "<br />";
         echo "<h2>ADMIN NOTES</h2>";
         echo '<p><a href="' . get_bloginfo("wpurl") . '/wp-admin/post-new.php?post_type=dsn">Créer une note </a></p>';
@@ -97,7 +97,7 @@ function function_tswd_init()
 
 
         echo '</div>';
-	    
+
         echo '<style>
 audio{
 	position:absolute;
@@ -182,7 +182,7 @@ function custom_toolbar_link($wp_admin_bar)
         $args = array(
             'id' => 'tswd-adminbar-tswd-front-css',
             'title' => 'Edit CSS',
-            'href' => 'plugin-editor.php?file=tswd-front-end%2Ftswd-front-css.css&plugin=tswd-front-end%2Findex.php',
+            'href' => 'plugin-editor.php?file=tswd-front-end%2Ffront-css.css&plugin=tswd-front-end%2Findex.php',
             'parent' => 'tswd-adminbar',
             'meta' => array(
                 'class' => 'tswd-adminbar-tswd-front-css'
@@ -194,7 +194,7 @@ function custom_toolbar_link($wp_admin_bar)
         $args = array(
             'id' => 'tswd-adminbar-tswd-front-js',
             'title' => 'Edit JS',
-            'href' => 'plugin-editor.php?file=tswd-front-end%2Ftswd-front-js.js&plugin=tswd-front-end%2Findex.php',
+            'href' => 'plugin-editor.php?file=tswd-front-end%2Ffront-js.js&plugin=tswd-front-end%2Findex.php',
             'parent' => 'tswd-adminbar',
             'meta' => array(
                 'class' => 'tswd-adminbar-tswd-front-js'
@@ -206,7 +206,7 @@ function custom_toolbar_link($wp_admin_bar)
         $args = array(
             'id' => 'tswd-adminbar-tswd-fonts',
             'title' => 'Edit FONTS',
-            'href' => 'plugin-editor.php?file=tswd-front-end%2Ffont-lib%2F-tswd-fonts.css&plugin=tswd-front-end%2Findex.php',
+            'href' => 'plugin-editor.php?file=tswd-front-end%2Ffont-lib%2F-front-fonts.css&plugin=tswd-front-end%2Findex.php',
             'parent' => 'tswd-adminbar',
             'meta' => array(
                 'class' => 'tswd-adminbar-tswd-fonts'
@@ -272,44 +272,84 @@ function recently_edited_pages()
     return $pages;
 }
 
-/*****************/
+/********* POSTS ********/
 
 add_action('admin_bar_menu', 'post_admin_bar_function', 999);
 
 function post_admin_bar_function($wp_admin_bar)
 {
-
-    $args = array(
-        'id' => 'post_list',
-        'title' => 'Listing des articles',
-        'href' => home_url() . '/wp-admin/edit.php?post_type=post'
-    );
-    $wp_admin_bar->add_node($args);
-
     $posts = recently_edited_posts();
 
-    foreach ($posts as $post) {
-
+    if ( ! empty($posts) ) {
         $args = array(
-            'id' => 'post_item_' . $post->ID,
-            'title' => $post->post_title,
-            'parent' => 'post_list',
-            'href' => home_url() . '/wp-admin/post.php?post=' . $post->ID . '&action=edit'
+            'id' => 'post_list',
+            'title' => 'Listing des articles',
+            'href' => home_url() . '/wp-admin/edit.php?post_type=post'
         );
         $wp_admin_bar->add_node($args);
+
+        foreach ($posts as $post) {
+            $args = array(
+                'id' => 'post_item_' . $post->ID,
+                'title' => $post->post_title,
+                'parent' => 'post_list',
+                'href' => home_url() . '/wp-admin/post.php?post=' . $post->ID . '&action=edit'
+            );
+            $wp_admin_bar->add_node($args);
+        }
     }
 }
 
 function recently_edited_posts()
 {
-
     $args = array(
         'numberposts' => 99,
         'orderby' => 'post_modified',
         'order' => 'DESC',
-        'post_type' => 'post'
+        'post_type' => 'post' // Assurez-vous que ce type correspond bien
     );
 
     $posts = get_posts($args);
     return $posts;
+}
+
+/********* PROJECTS DIVI ********/
+
+add_action('admin_bar_menu', 'divi_project_admin_bar_function', 999);
+
+function divi_project_admin_bar_function($wp_admin_bar)
+{
+    $projects = recently_edited_divi_projects();
+
+    if ( ! empty($projects) ) {
+        $args = array(
+            'id' => 'divi_project_list',
+            'title' => 'Listing des projets Divi',
+            'href' => home_url() . '/wp-admin/edit.php?post_type=project'
+        );
+        $wp_admin_bar->add_node($args);
+
+        foreach ($projects as $project) {
+            $args = array(
+                'id' => 'divi_project_item_' . $project->ID,
+                'title' => $project->post_title,
+                'parent' => 'divi_project_list',
+                'href' => home_url() . '/wp-admin/post.php?post=' . $project->ID . '&action=edit'
+            );
+            $wp_admin_bar->add_node($args);
+        }
+    }
+}
+
+function recently_edited_divi_projects()
+{
+    $args = array(
+        'numberposts' => 99,
+        'orderby' => 'post_modified',
+        'order' => 'DESC',
+        'post_type' => 'project' // Assurez-vous que ce type correspond bien
+    );
+
+    $projects = get_posts($args);
+    return $projects;
 }

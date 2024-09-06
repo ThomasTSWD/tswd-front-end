@@ -10,20 +10,20 @@ Author URI: https://tswd.fr/
 
 include(plugin_dir_path( __FILE__ ) . 'functions.php');
 include(plugin_dir_path( __FILE__ ) . '/core/wpload.php');
-include(plugin_dir_path( __FILE__ ) . '/core/improvements.php'); 
-include(plugin_dir_path( __FILE__ ) . '/core/labels.php'); 
-include(plugin_dir_path( __FILE__ ) . '/core/admin-notes.php'); 
+include(plugin_dir_path( __FILE__ ) . '/core/improvements.php');
+include(plugin_dir_path( __FILE__ ) . '/core/labels.php');
+include(plugin_dir_path( __FILE__ ) . '/core/admin-notes.php');
 include(plugin_dir_path( __FILE__ ) . '/core/monokai.php');
-include(plugin_dir_path( __FILE__ ) . '/core/shortcodes.php'); 
+include(plugin_dir_path( __FILE__ ) . '/core/shortcodes.php');
 include(plugin_dir_path( __FILE__ ) . '/core/svg.php');
 include(plugin_dir_path( __FILE__ ) . '/core/save_with_keyboard.php');
 
 
 
 
-//    _______ ______ ______ _______ ______ _______ _______ 
+//    _______ ______ ______ _______ ______ _______ _______
 
-function loadTswdJs() {   
+function loadTswdJs() {
 	//wp_enqueue_script( 'ScrollMagic', plugin_dir_url( __FILE__ ) . '/js-lib/ScrollMagic/ScrollMagic.min.js', '',  '', true );
 	//wp_enqueue_script( 'TweenMax', plugin_dir_url( __FILE__ ) . '/js-lib/ScrollMagic/TweenMax.min.js', '',  '', true );
 	//wp_enqueue_script( 'animation.gsap', plugin_dir_url( __FILE__ ) . '/js-lib/ScrollMagic/animation.gsap.min.js', '',  '', true );
@@ -35,20 +35,20 @@ function loadTswdJs() {
 	//wp_enqueue_script( 'Lenis', plugin_dir_url( __FILE__ ) . '/js-lib/lenis.js', '',  '', true );
 	//wp_enqueue_script( 'Ukiyo', plugin_dir_url( __FILE__ ) . '/js-lib/ukiyo.min.js', '',  '', true );
 	// wp_enqueue_script( 'splitting', plugin_dir_url( __FILE__ ) . '/js-lib/splitting/splitting.js', '',  '', true );
-	wp_enqueue_script( 'tswd-front-js', plugin_dir_url( __FILE__ ) . '/tswd-front-js.js', '',  '', true );
+	wp_enqueue_script( 'tswd-front-js', plugin_dir_url( __FILE__ ) . '/front-js.js', '',  '', true );
 }
 
 
-//    _______ ______ ______ _______ ______ _______ _______ 
+//    _______ ______ ______ _______ ______ _______ _______
 
 
 function loadTswdFonts(){
-    wp_register_style('tswd-fonts', plugins_url('font-lib/-tswd-fonts.css', __FILE__));
+    wp_register_style('tswd-fonts', plugins_url('font-lib/-front-fonts.css', __FILE__));
     wp_enqueue_style('tswd-fonts');
 }
 
 
-//    _______ ______ ______ _______ ______ _______ _______ 
+//    _______ ______ ______ _______ ______ _______ _______
 
 function loadTswdStyle() {
 	//wp_register_style('slick-css', plugins_url('/js-lib/slick/slick.css', __FILE__));
@@ -59,9 +59,9 @@ function loadTswdStyle() {
 	//wp_enqueue_style('splitting-css');
 	//wp_register_style('splitting-cells-css', plugins_url('/js-lib/splitting/splitting-cells.css', __FILE__));
 	//wp_enqueue_style('splitting-cells-css');
-	wp_register_style('tswd-front-css', plugins_url('tswd-front-css.css', __FILE__));
+	wp_register_style('tswd-front-css', plugins_url('front-css.css', __FILE__));
 	wp_enqueue_style('tswd-front-css');
-	
+
 }
 
 
@@ -74,7 +74,7 @@ if(!is_admin() || empty($_GET['et_fb'])){
 }
 
 
-//    _______ ______ ______ _______ ______ _______ _______ 
+//    _______ ______ ______ _______ ______ _______ _______
 
 function admin_scripts() {
 	wp_enqueue_script( 'ico-admin-js', plugins_url( '/tswd-front-end/core/dist/stylizer.js' , dirname(__FILE__) ) );
