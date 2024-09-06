@@ -1,6 +1,9 @@
 <?php
 //show_admin_bar(false);
 
+// Désactiver les notifications de mise à jour du core pour les utilisateurs non administrateurs
+add_action('admin_init', function() { if (!current_user_can('administrator')) remove_action('admin_notices', 'update_nag', 3); });
+
 //CLASSIC WIDGETS
 
 add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
