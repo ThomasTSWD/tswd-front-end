@@ -1,5 +1,10 @@
 <?php
 //show_admin_bar(false);
+// default_image_size original
+function tswd_set_default_image_size() {
+    update_option('image_default_size', 'full');
+}
+add_action('after_setup_theme', 'tswd_set_default_image_size');
 
 // Désactiver les notifications de mise à jour du core pour les utilisateurs non administrateurs
 add_action('admin_init', function() { if (!current_user_can('administrator')) remove_action('admin_notices', 'update_nag', 3); });
