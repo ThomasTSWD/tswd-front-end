@@ -66,7 +66,7 @@ function loadTswdStyle() {
 
 
 
-if(!is_admin() || empty($_GET['et_fb'])){
+if(!is_admin() && empty($_GET['et_fb'])){
 	add_action('wp_print_styles', 'loadTswdFonts');
 	add_action( 'wp_print_styles', 'loadTswdStyle' );
 	add_action('wp_enqueue_scripts', 'loadTswdJs');
