@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 
-	/****** IMG HOVER */
+	/* IMG HOVER ⋆ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ★ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ★ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ */
 
 	$("img").hover(function () {
 		var title = $(this).attr("title");
@@ -10,12 +10,14 @@ jQuery(document).ready(function ($) {
 		$(this).attr("title", $(this).attr("tmp_title"));
 	});
 
-	/******** TSWD Year**********/
+
+	/* TSWD Year ⋆ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ★ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ★ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ */
 
 	const tswdYear = new Date().getFullYear();
 	$('.tswd-year').text(tswdYear);
 
-	/********* CF7 *********/
+
+	/* CF7 Hide ⋆ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ★ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ★ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ */
 
 	$(document).on('wpcf7mailsent', function (event) {
 		var $form = $(event.target);

@@ -11,7 +11,11 @@ Author URI: https://tswd.fr/
 include(plugin_dir_path( __FILE__ ) . 'functions.php');
 include(plugin_dir_path( __FILE__ ) . '/core/wpload.php');
 include(plugin_dir_path( __FILE__ ) . '/core/improvements.php');
-include(plugin_dir_path( __FILE__ ) . '/core/labels.php');
+add_action( 'admin_init', function() {
+    if ( current_user_can( 'manage_options' ) ) {
+        include plugin_dir_path( __FILE__ ) . 'core/labels.php';
+    }
+});
 include(plugin_dir_path( __FILE__ ) . '/core/admin-notes.php');
 include(plugin_dir_path( __FILE__ ) . '/core/monokai.php');
 include(plugin_dir_path( __FILE__ ) . '/core/shortcodes.php');
