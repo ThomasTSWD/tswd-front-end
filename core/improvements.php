@@ -1,5 +1,19 @@
 <?php
+// Logo de connexion = favicon
+function tswd_custom_login_logo() {
+    $tswd_site_icon_id = get_option('site_icon');
+    if (!$tswd_site_icon_id) return;
+    $tswd_favicon_url = wp_get_attachment_image_url($tswd_site_icon_id, 'full');
+    echo '<style>
+        h1 a {
+            background-image: url("'.$tswd_favicon_url.'") !important;
+        }
+    </style>';
+}
+add_action('login_head', 'tswd_custom_login_logo');
+
 //show_admin_bar(false);
+
 // default_image_size original
 function tswd_set_default_image_size() {
     update_option('image_default_size', 'full');
@@ -51,7 +65,7 @@ function custom_lorem_function($clf_attributes)
     ), $clf_attributes));
     $counter    = 0;
     $returnText = array();
-    
+
     while ($counter <= $x) {
         array_push($returnText, $dummyLorem[$counter % count($dummyLorem)]);
         $counter++;
@@ -121,10 +135,10 @@ add_action('wp_footer', 'my_deregister_scripts');
 //add_filter('the_generator', 'remove_version');
 //// ------------------ virer notifications de MAJ
 //// supprimer les notifications du core MAJ
-//add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) ); 
+//add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
 //// supprimer les notifications de thèmes MAJ
 //remove_action( 'load-update-core.php', 'wp_update_themes' );
-//add_filter( 'pre_site_transient_update_themes', create_function( '$a', "return null;" ) ); 
+//add_filter( 'pre_site_transient_update_themes', create_function( '$a', "return null;" ) );
 //// supprimer les notifications de plugins MAJ
 //remove_action( 'load-update-core.php', 'wp_update_plugins' );
 //add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
