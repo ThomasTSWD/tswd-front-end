@@ -5,6 +5,9 @@ CSS variables in Divi options
 var(--noir);
 
 */
+#cmplz-manage-consent {
+  display: none !important;
+}
 /* ⋆ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ★ ✢ ✣ ✤ ✥ ✦ ✧  BASICS  ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ★ ✢ ✣ ✤ ✥ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ */
 #footer-bottom>.container,
 #main-footer>.container {
