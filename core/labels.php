@@ -71,11 +71,7 @@ function function_tswd_init()
         //echo"<p>dbuser : $wpdb->dbuser</p>";
         //echo"<p>dbhost : $wpdb->dbhost</p>";
         //echo"<i>db : ***$wpdb->dbpassword***</i>";
-        echo "<br />";
-        echo "<h2>PHPINFO</h2>";
-        echo "<p>realpath : " . realpath("index.php") . "</p>";
-        echo '<a target=_blank href="' . plugin_dir_url(__FILE__) . '/phpinfo.php';
-        echo '">Go vers la page php_info</a>';
+       
 
         echo "<p><br /></p>";
 
