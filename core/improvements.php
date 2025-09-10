@@ -1,4 +1,33 @@
 <?php
+
+//show_admin_bar(false);
+
+// Remplacer le logo WP par celui du site
+function tswd_replace_wp_logo( $wp_admin_bar ) {
+    $tswd_site_icon_id = get_option('site_icon');
+    if ( ! $tswd_site_icon_id ) return;
+
+    $tswd_logo_url = wp_get_attachment_image_url( $tswd_site_icon_id, 'full' );
+    if ( ! $tswd_logo_url ) return;
+
+    $wp_admin_bar->add_node([
+        'id'    => 'wp-logo',
+        'title' => '<span class="ab-icon"><img src="'.esc_url($tswd_logo_url).'" style="height:20px; width:auto; display:block; margin-top:2px;" alt="'.esc_attr(get_bloginfo('name')).'"></span>',
+        'href'  => home_url('/'),
+        'meta'  => ['class' => 'tswd-site-logo', 'title' => get_bloginfo('name')],
+    ]);
+}
+add_action('admin_bar_menu', 'tswd_replace_wp_logo', 11);
+
+function tswd_admin_bar_logo_style() {
+    echo '<style>
+        #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+            display: none !important;
+        }
+    </style>';
+}
+add_action('admin_head', 'tswd_admin_bar_logo_style');
+
 // Logo de connexion = favicon
 function tswd_custom_login_logo() {
     $tswd_site_icon_id = get_option('site_icon');
@@ -12,7 +41,15 @@ function tswd_custom_login_logo() {
 }
 add_action('login_head', 'tswd_custom_login_logo');
 
-//show_admin_bar(false);
+// Allow scaling to improve accessibility / Enable pinch-zoom in Divi
+add_action('after_setup_theme', function() {
+    remove_action('wp_head', 'et_add_viewport_meta'); // retire la meta viewport de Divi
+});
+
+add_action('wp_head', function() {
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=10.0, user-scalable=yes">';
+}, 1);
+
 
 // default_image_size original
 function tswd_set_default_image_size() {
@@ -29,20 +66,12 @@ add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
 add_filter( 'use_widgets_block_editor', '__return_false' );
 
 
-//Enlver logo wp
-
-function remove_wp_logo( $wp_admin_bar ) {
-	$wp_admin_bar->remove_node( 'wp-logo' );
-}
-add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
-
 
 /*--------Made with love-------*/
 function remove_footer_admin()
 {
     echo 'Made with ♥';
 }
-
 add_filter('admin_footer_text', 'remove_footer_admin');
 
 
@@ -76,9 +105,6 @@ add_shortcode('lorem', 'custom_lorem_function');
 
 
 
-
-
-
 //Rester connecté 1an
 add_filter('auth_cookie_expiration', 'stay_logged_in_for_1_year');
 function stay_logged_in_for_1_year($expire)
@@ -100,11 +126,7 @@ function sf_check_rememberme()
 }
 add_action("login_form", "sf_check_rememberme");
 
-//------------------ phrase du bas panneau admin
-/*function remove_footer_admin () {
-echo '<span>Merci d\'avoir fait appel à <a href="https://www.tswd.fr">Nous</a> pour votre site.';
-}
-add_filter('admin_footer_text', 'remove_footer_admin');*/
+
 
 //-------------------CLEAN THE HEADER
 remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -128,20 +150,6 @@ function my_deregister_scripts()
 add_action('wp_footer', 'my_deregister_scripts');
 
 
-// ----------------- virer versions wordpress
-//function remove_version() {
-//  return '';
-//}
-//add_filter('the_generator', 'remove_version');
-//// ------------------ virer notifications de MAJ
-//// supprimer les notifications du core MAJ
-//add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
-//// supprimer les notifications de thèmes MAJ
-//remove_action( 'load-update-core.php', 'wp_update_themes' );
-//add_filter( 'pre_site_transient_update_themes', create_function( '$a', "return null;" ) );
-//// supprimer les notifications de plugins MAJ
-//remove_action( 'load-update-core.php', 'wp_update_plugins' );
-//add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
 
 //------------------Duplicate posts and pages
 
