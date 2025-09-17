@@ -20,13 +20,17 @@ function tswd_replace_wp_logo( $wp_admin_bar ) {
 add_action('admin_bar_menu', 'tswd_replace_wp_logo', 11);
 
 function tswd_admin_bar_logo_style() {
-    echo '<style>
-        #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
-            display: none !important;
-        }
-    </style>';
+    if ( is_user_logged_in() ) {
+        echo '<style>
+            #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+                display: none !important;
+            }
+        </style>';
+    }
 }
 add_action('admin_head', 'tswd_admin_bar_logo_style');
+add_action('wp_head', 'tswd_admin_bar_logo_style');
+
 
 // Logo de connexion = favicon
 function tswd_custom_login_logo() {
